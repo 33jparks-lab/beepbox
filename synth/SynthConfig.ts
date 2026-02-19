@@ -45,16 +45,16 @@ export const enum EnvelopeType {
 	noteSize,
 	none,
 	punch,
-	flare,
-	twang,
+	bwowre,
+	pluckything,
 	swell,
-	tremolo,
-	tremolo2,
+	whatthefruit,
+	whatthefruit2,
 	decay,
 }
 
 export const enum InstrumentType {
-	chip,
+	chipwave,
 	fm,
 	noise,
 	spectrum,
@@ -63,8 +63,11 @@ export const enum InstrumentType {
 	pwm,
 	pickedString,
 	supersaw,
+	myinstrument,
 	length,
-}
+} 	public static readonly pickedStringBaseExpression: number = 0.025; // Same as harmonics.
+	public static readonly myInstrumentBaseExpression: number = 0.03375;
+
 
 export const enum EffectType {
 	reverb,
@@ -220,8 +223,8 @@ export interface AutomationTarget extends BeepBoxOption {
 
 export class Config {
 	public static readonly scales: DictionaryArray<Scale> = toNameMap([
-		{name: "easy :)",            realName: "pentatonic major",      flags: [true, false,  true, false,  true, false, false,  true, false,  true, false, false]},
-		{name: "easy :(",            realName: "pentatonic minor",      flags: [true, false, false,  true, false,  true, false,  true, false, false,  true, false]},
+		{name: "5tonic :)",            realName: "pentatonic major",      flags: [true, false,  true, false,  true, false, false,  true, false,  true, false, false]},
+		{name: "5tontc :(",            realName: "pentatonic minor",      flags: [true, false, false,  true, false,  true, false,  true, false, false,  true, false]},
 		{name: "island :)",          realName: "ryukyu",                flags: [true, false, false, false,  true,  true, false,  true, false, false, false,  true]},
 		{name: "island :(",          realName: "pelog selisir",         flags: [true,  true, false,  true, false, false, false,  true,  true, false, false, false]},
 		{name: "blues :)",           realName: "blues major",           flags: [true, false,  true,  true,  true, false, false,  true, false,  true, false, false]},
@@ -277,7 +280,7 @@ export class Config {
 		{name: "freehand",      stepsPerBeat:24, ticksPerArpeggio: 3, arpeggioPatterns: [[0], [0, 1],       [0, 1, 2, 1]], roundUpThresholds: null},
 	]);
 	
-	public static readonly instrumentTypeNames: ReadonlyArray<string> = ["chip", "FM", "noise", "spectrum", "drumset", "harmonics", "PWM", "Picked String", "supersaw"]; // See InstrumentType enum above.
+	public static readonly instrumentTypeNames: ReadonlyArray<string> = ["chip", "FM", "noise", "spectrum", "drumset", "harmonics", "PWM", "Picked String", "supersaw", "What The Fruit"]; // See InstrumentType enum above.
 	public static readonly instrumentTypeHasSpecialInterval: ReadonlyArray<boolean> = [true, true, false, false, false, true, false, false, false];
 	public static readonly chipBaseExpression:      number = 0.03375; // Doubled by unison feature, but affected by expression adjustments per unison setting and wave shape.
 	public static readonly fmBaseExpression:        number = 0.03;
